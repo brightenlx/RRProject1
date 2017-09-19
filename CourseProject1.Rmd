@@ -1,11 +1,7 @@
----
-title: "Activity Monitoring Data Analysis"
-author: "Xiang Li"
-date: "May 17, 2017"
-output:
-  pdf_document: default
-  html_document: default
----
+
+## Activity Monitoring Data Analysis
+### author: Xiang Li
+
 
 ## Loading and preprocessing the data
 ```{r}
@@ -154,10 +150,3 @@ xyplot(avgsteps$avg_steps ~ avgsteps$interval | factor(avgsteps$Day), type = 'l'
 ```
 
 Conclusion: There are differences in activity patterns between weekdays and weekends. On average this person exercise more on weekend, which makes sense because he/she might have more free time to workout on weekends than on weekdays.
-
-
-
-
-
-
-
