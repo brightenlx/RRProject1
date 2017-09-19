@@ -7,7 +7,7 @@ output:
   html_document: default
 ---
 
-##Loading and preprocessing the data
+## Loading and preprocessing the data
 ```{r}
 activity = read.csv("Q:/Desktop/Coursera/5. Reproducible Research/Course Project 1/activity.csv")
 ```
@@ -23,7 +23,7 @@ summary(activity)
 str(activity)
 ```
 
-##What is mean total number of steps taken per day?
+## What is mean total number of steps taken per day?
 ```{r}
 # Calculate the steps by date
 library(data.table)
@@ -46,7 +46,7 @@ median_step
 ```
 The mean of steps taken each day is `r mean_step` steps and the median is 10395 steps.
 
-##What is the average daily activity pattern?
+## What is the average daily activity pattern?
 ```{r}
 # Calculate the average steps by interval
 library(data.table)
@@ -64,7 +64,7 @@ with(avgsteps, plot(interval, avg_steps, type = "l", main = "Time Series - Avera
 avgsteps[which.max(avgsteps$avg_steps),]$interval
 ```
 
-##Imputing missing values
+## Imputing missing values
 ```{r warning = FALSE}
 # Look at missing data pattern
 library(mice)
@@ -139,7 +139,7 @@ Before Imputing: The mean of steps taken each day is 9354 steps and the median i
 After Imputing: The mean of steps taken each day is 10400 steps and the median is 10439 steps.
 Conclusion: Imputing missing data increase the mean and median of the total daily number of steps.
 
-##Are there differences in activity patterns between weekdays and weekends?
+## Are there differences in activity patterns between weekdays and weekends?
 ```{r}
 # Add a column identifying weekdays and weekends
 Imputed_activity$Day <- ifelse(weekdays(as.Date(Imputed_activity$date)) %in% c("Saturday", "Sunday"), "weekend", "weekday")
